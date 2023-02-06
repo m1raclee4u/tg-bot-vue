@@ -32,16 +32,16 @@
 
 <script>
 export default {
-    methods:{
-        addProducttoCart(){
-            if (tg.MainButton.isVisible){
-                tg.MainButton.hide()
-            }
-            else {
-                tg.MainButton.show()
-            }
-        }
-    }
+  methods: {
+    addProducttoCart() {
+      console.log(tg.MainButton);
+      if (tg.MainButton.isVisible) {
+        tg.MainButton.hide();
+      } else {
+        tg.MainButton.show();
+      }
+    },
+  },
 };
 </script>
 

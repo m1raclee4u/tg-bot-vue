@@ -21,6 +21,9 @@ export default {
       {
         src: "https://telegram.org/js/telegram-web-app.js",
       },
+      {
+        src: "/js/useTelegram.js",
+      },
     ]
   },
   
@@ -33,7 +36,6 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '@/plugins/element-ui',
-    '@/plugins/useTelegram'
   ],
   
   // Auto import components: https://go.nuxtjs.dev/config-components
