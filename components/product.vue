@@ -79,7 +79,7 @@ export default {
 
 .ItemCart {
   position: relative;
-  max-width: 405px;
+  max-width: 170px;
   width: 100%;
 //   padding-bottom: 60px;
   img {
