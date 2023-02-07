@@ -12,7 +12,7 @@
             <productInCart :product="product" />
           </div>
         </div>
-        <p v-if="getProducts.length > 0">Итого: {{ fullprice }} ₽</p>
+        <p class="fullPrice" v-if="getProducts.length > 0">Итого: {{ fullprice }} ₽</p>
       </div>
       <p v-if="this.getProducts.length === 0" style="text-align: center; width: 100%">В вашей корзине пусто, <br/> но наш <Nuxt-link to="/"> каталог полон товаров.</Nuxt-link></p>
     </div>
@@ -72,6 +72,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.fullPrice{
+    color: var(--tg-theme-text-color);
+}
 .cart {
   width: 100%;
   // max-width: 100%;
