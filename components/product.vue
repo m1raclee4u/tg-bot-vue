@@ -56,10 +56,10 @@ export default {
   flex-direction: column;
   gap: 7px;
   // border: 1px solid var(--tg-theme-button-color);
+  background-color: var(--tg-theme-bg-color);
   box-shadow: -1px 5px 8px 0px var(--tg-theme-button-color); /* border: 1px solid var(--tg-theme-button-color); */
   padding: 15px;
   max-width: 170px;
-  background-color: white;
   border-radius: 6px;
   box-sizing: border-box;
   height: 100%;
@@ -68,10 +68,10 @@ export default {
 
 .img {
   width: 100%;
-  background: lightgray;
   height: auto;
   margin: 0 auto;
-  background: var(--tg-theme-button-color);
+  background-color: var(--tg-theme-bg-color);
+
 }
 
 .description {
@@ -84,15 +84,17 @@ export default {
 
 .add-btn {
   width: 100%;
+  background: var(--tg-theme-button-color);
+  color: var(--tg-theme-button-text-color);
 }
 
 .price {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  color: black;
+  color: var(--tg-theme-text-color);
 }
 .price span {
-  /* color: ; */
+   color: var(--tg-theme-text-color); 
 }
 
 .title {
@@ -101,6 +103,6 @@ export default {
   font-size: 12px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  color: black;
+  color: var(--tg-theme-text-color);
 }
 </style>
