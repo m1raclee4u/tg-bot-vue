@@ -62,13 +62,17 @@ export default {
       tg.MainButton.setText("Оформить заказ");
       tg.MainButton.show();
     }
-  },
-  updated() {
     tg.onEvent("mainButtonClicked", this.sendData);
+    this.$once('hook:beforeDestroy', () => {
+      tg.offEvent("mainButtonClicked", this.sendData);
+    });
   },
-  beforeDestroy() {
-    tg.offEvent("mainButtonClicked", this.sendData);
-  },
+//   updated() {
+//     tg.onEvent("mainButtonClicked", this.sendData);
+//   },
+//   beforeDestroy() {
+//     tg.offEvent("mainButtonClicked", this.sendData);
+//   },
 };
 </script>
 

@@ -73,13 +73,18 @@ export default {
       tg.MainButton.setText("Перейти в корзину");
       tg.MainButton.show();
     }
-  },
-  updated() {
     tg.onEvent("mainButtonClicked", this.routeToCart);
+    
+    this.$once('hook:beforeDestroy', () => {
+      tg.offEvent("mainButtonClicked", this.routeToCart);
+    });
   },
-  beforeDestroy() {
-    tg.offEvent("mainButtonClicked", this.routeToCart);
-  },
+  // updated() {
+  //   tg.onEvent("mainButtonClicked", this.routeToCart);
+  // },
+  // beforeDestroy() {
+  //   tg.offEvent("mainButtonClicked", this.routeToCart);
+  // },
 };
 </script>
 
