@@ -12,9 +12,18 @@
             <productInCart :product="product" />
           </div>
         </div>
-        <p class="fullPrice" v-if="getProducts.length > 0">Итого: {{ fullprice }} ₽</p>
+        <p class="tg-color" v-if="getProducts.length > 0">
+          Итого: {{ fullprice }} ₽
+        </p>
       </div>
-      <p v-if="this.getProducts.length === 0" style="text-align: center; width: 100%">В вашей корзине пусто, <br/> но наш <Nuxt-link to="/"> каталог полон товаров.</Nuxt-link></p>
+      <p
+        class="tg-color"
+        v-if="this.getProducts.length === 0"
+        style="text-align: center; width: 100%"
+      >
+        В вашей корзине пусто, <br />
+        но наш <Nuxt-link to="/"> каталог полон товаров.</Nuxt-link>
+      </p>
     </div>
   </div>
 </template>
@@ -64,7 +73,7 @@ export default {
       tg.MainButton.show();
     }
     tg.onEvent("mainButtonClicked", this.sendData);
-    this.$once('hook:beforeDestroy', () => {
+    this.$once("hook:beforeDestroy", () => {
       tg.offEvent("mainButtonClicked", this.sendData);
     });
   },
@@ -72,8 +81,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.fullPrice{
+.tg-color {
+  color: var(--tg-theme-text-color);
+  a {
     color: var(--tg-theme-text-color);
+  }
 }
 .cart {
   width: 100%;
