@@ -13,7 +13,7 @@
       >
     </div>
     <Button class="add-btn" @click="addProductHandler">
-      Добавить в корзину
+      Добавить
     </Button>
   </div>
 </template>
@@ -87,6 +87,9 @@ export default {
   border-radius: 8px;
   box-sizing: border-box;
   padding: 9px 8px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
   background: var(--tg-theme-button-color);
   color: var(--tg-theme-button-text-color);
 }
