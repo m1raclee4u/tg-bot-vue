@@ -75,9 +75,10 @@ export default {
     }
   },
   updated() {
-      let f = () => this.routeToCart;
-      tg.onEvent("mainButtonClicked", f);
-      tg.offEvent("mainButtonClicked", f);         
+    tg.onEvent("mainButtonClicked", this.routeToCart);
+  },
+  beforeDestroy() {
+    tg.offEvent("mainButtonClicked", this.routeToCart);
   },
 };
 </script>
