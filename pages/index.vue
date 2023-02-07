@@ -60,7 +60,9 @@ export default {
       console.log(this.products);
     },
     routeToCart() {
-      this.$router.push('/cart')
+      tg.offEvent("mainButtonClicked", this.routeToCart);
+      this.$router.push("/cart");
+      console.log("indexHandler");
     },
     loadMore() {
       this.currentPage += 1;

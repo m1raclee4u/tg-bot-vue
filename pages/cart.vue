@@ -51,7 +51,8 @@ export default {
             },
             body: JSON.stringify(data)
         })
-        console.log('handler');
+        tg.offEvent("mainButtonClicked", this.sendData);\
+        console.log('cartHandler');
     },
   },
   mounted() {
@@ -63,7 +64,7 @@ export default {
     }
   },
   updated() {
-    // tg.onEvent("mainButtonClicked", this.sendData);
+    tg.onEvent("mainButtonClicked", this.sendData);
   },
 };
 </script>
