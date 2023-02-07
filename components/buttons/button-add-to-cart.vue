@@ -34,7 +34,7 @@ export default {
     }),
     async buyClickHandler() {
       const delay = (ms) => new Promise((res) => setTimeout(res, ms));
-      await delay(1000);
+      await delay(100);
       this.addProduct(this.productComputed);
       this.$emit('addProductListener');
     },
