@@ -5,12 +5,17 @@
       :src="'https://frontend-test.idaproject.com' + product.photo"
       :alt="product.name"
     />
-    <div class="title">{{ product.name }}</div>
-    <div class="description">8x2.2 ГГц, 4 ГБ, 2 SIM, IPS, 2340x1080, камера 48+5 Мп, 3G, 4G, GPS, 4000 мАч</div>
-    <div class="price">
-      <span
-        >Стоимость: <b>{{ product.price }} ₽</b></span
-      >
+    <div class="info">
+      <div class="title">{{ product.name }}</div>
+      <div class="description">
+        8x2.2 ГГц, 4 ГБ, 2 SIM, IPS, 2340x1080, камера 48+5 Мп, 3G, 4G, GPS,
+        4000 мАч
+      </div>
+      <div class="price">
+        <span
+          >Стоимость: <b>{{ product.price }} ₽</b></span
+        >
+      </div>
     </div>
     <Button class="add-btn" @click="addProductHandler"> Добавить </Button>
   </div>
@@ -50,7 +55,7 @@ export default {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
   // border: 1px solid var(--tg-theme-button-color);
   background-color: var(--tg-theme-bg-color);
   padding: 10px;
@@ -61,6 +66,11 @@ export default {
   justify-content: space-between;
   &:hover {
     box-shadow: 0px 10px 20px -5px var(--tg-theme-hint-color);
+  }
+  .info{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
   }
 }
 
