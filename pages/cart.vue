@@ -39,6 +39,7 @@ export default {
   },
   methods: {
     sendData() {
+        tg.offEvent("mainButtonClicked", this.sendData);
         const data = {
             products: this.getProducts,
             price: this.fullPrice,
@@ -51,7 +52,6 @@ export default {
             },
             body: JSON.stringify(data)
         })
-        tg.offEvent("mainButtonClicked", this.sendData);
         console.log('cartHandler');
     },
   },
