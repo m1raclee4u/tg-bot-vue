@@ -34,9 +34,17 @@ export default {
     }),
     async buyClickHandler() {
       const delay = (ms) => new Promise((res) => setTimeout(res, ms));
-      await delay(100);
+
+      await delay(200);
+
       this.addProduct(this.productComputed);
-      this.$emit('addProductListener');
+      
+      if (products.length === 0) {
+        tg.MainButton.hide();
+      } else {
+        tg.MainButton.setText('Перейти в корзину');
+        tg.MainButton.show();
+      }
     },
   },
 };

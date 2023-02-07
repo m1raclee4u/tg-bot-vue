@@ -17,7 +17,7 @@
         >
       </div>
     </div>
-    <button-add-to-cart :product="product" class="add-btn" @addProductListener="addProductHandler"/>
+    <button-add-to-cart :product="product" class="add-btn"/>
   </div>
 </template>
 
@@ -41,14 +41,6 @@ export default {
     };
   },
   methods: {
-    addProductHandler() {
-      if (tg.MainButton.isVisible) {
-        tg.MainButton.hide();
-      } else {
-        tg.MainButton.setText('Перейти в корзину');
-        tg.MainButton.show();
-      }
-    },
   },
 };
 </script>
