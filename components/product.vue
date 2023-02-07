@@ -81,7 +81,7 @@ export default {
 
 .add-btn {
   width: 75%;
-  margin: 0 auto;
+  margin: 7px auto;
   border: none;
   border-radius: 20px;
   box-sizing: border-box;
