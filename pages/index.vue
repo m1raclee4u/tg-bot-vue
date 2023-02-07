@@ -1,6 +1,6 @@
 <template>
   <div class="web-app">
-    <headerComponent/>
+    <headerComponent />
     <div class="wrapper flex-wrap">
       <div v-for="product in this.paginatedProducts" :key="product.id">
         <product :product="product" />
@@ -49,40 +49,40 @@ export default {
     paginatedProducts() {
       return this.products.slice(0, this.currentPage * this.maxPerPage);
     },
-  },  
+  },
   beforeMount() {
     // if (this.$store.getters["products"].length === 0) {
     this.$store.dispatch("fetchProducts");
     // }
-  },  
+  },
   methods: {
     log() {
       console.log(this.products);
+    },
+    routeToCart() {
+      this.$router.push('/cart')
     },
     loadMore() {
       this.currentPage += 1;
     },
   },
-  mounted(){
+  mounted() {
     if (this.products.length === 0) {
-        tg.MainButton.hide();
-      } else {
-        tg.MainButton.setText('Перейти в корзину');
-        tg.MainButton.show();
-      }
+      tg.MainButton.hide();
+    } else {
+      tg.MainButton.setText("Перейти в корзину");
+      tg.MainButton.show();
+    }
   },
-  updated(){
-    tg.onEvent('mainButtonClicked', this.log)
-  }
+  updated() {
+    tg.onEvent("mainButtonClicked", this.routeToCart);
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-
-
-.flex-wrap{
+.flex-wrap {
   flex-wrap: wrap;
-
 }
 .load-more {
   width: 75%;
