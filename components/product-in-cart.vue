@@ -35,7 +35,8 @@ export default {
     align-items: center;
     gap: 10px;
     height: 60px;
-
+    width: 100%;
+    max-width: 200px;
     .cart__image {
       // width: 30px;
       max-height: 100%;

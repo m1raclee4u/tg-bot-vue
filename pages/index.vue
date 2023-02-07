@@ -73,8 +73,6 @@ export default {
       tg.MainButton.setText("Перейти в корзину");
       tg.MainButton.show();
     }
-    tg.offEvent('mainButtonClicked', this.sendData)
-
   },
   updated() {
     tg.onEvent("mainButtonClicked", this.routeToCart);
