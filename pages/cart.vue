@@ -51,7 +51,7 @@ export default {
             },
             body: JSON.stringify(data)
         })
-        tg.offEvent("mainButtonClicked", this.sendData);\
+        tg.offEvent("mainButtonClicked", this.sendData);
         console.log('cartHandler');
     },
   },
