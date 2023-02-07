@@ -68,7 +68,8 @@ export default {
 .web-app{
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 20px;
+  padding: 20px 0;
 }
 .wrapper{
   display: flex;
