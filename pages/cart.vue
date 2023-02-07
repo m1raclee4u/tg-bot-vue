@@ -61,10 +61,10 @@ export default {
       tg.MainButton.setText("Оформить заказ");
       tg.MainButton.show();
     }
+    tg.offEvent("mainButtonClicked", this.routeToCart);
   },
   updated() {
     tg.onEvent("mainButtonClicked", this.sendData);
-    tg.offEvent('mainButtonClicked', this.sendData)
   },
 };
 </script>
