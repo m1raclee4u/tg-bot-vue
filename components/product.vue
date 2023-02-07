@@ -60,7 +60,7 @@ export default {
   height: 100%;
   justify-content: space-between;
   &:hover {
-    box-shadow: -1px 1px 2px 1px var(--tg-theme-hint-color);
+    box-shadow: 0px 10px 50px 0px var(--tg-theme-hint-color);
   }
 }
 
