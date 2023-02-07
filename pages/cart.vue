@@ -51,7 +51,6 @@ export default {
     sendData() {
       const { queryId } = useTelegram();
       var data = {
-        user,
         products: this.getProducts,
         price: this.fullPrice,
         queryId,
