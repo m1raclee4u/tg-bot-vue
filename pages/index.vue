@@ -1,6 +1,5 @@
 <template>
   <div class="web-app">
-    <button @click="log">123</button>
     <div class="wrapper">
       <div v-for="product in this.paginatedProducts" :key="product.id">
         <product :product="product"/>
@@ -9,6 +8,7 @@
     <button
           @click="loadMore"
           v-if="currentPage * maxPerPage < this.products.length"
+          class="load-more"
         >
           Загрузить больше
         </button>
@@ -68,6 +68,13 @@ export default {
 .wrapper{
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 40px;
+}
+.load-more{
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 20px;
+  background: var(--tg-theme-button-color);
+  color: var(--tg-theme-button-text-color);
 }
 </style>
