@@ -49,20 +49,21 @@ export default {
   },
   methods: {
     sendData() {
-      const data = {
-          products: this.getProducts,
-          price: this.fullPrice,
-          queryId
-      }
-      fetch('http://localhost:8000/web-data', {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-      })
-    //   this.$router.push("/");
-    //   console.log("cartHandler");
+      const { queryId } = useTelegram();
+      var data = {
+        products: this.getProducts,
+        price: this.fullPrice,
+        queryId,
+      };
+      fetch("http://localhost:8000/web-data", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      //   this.$router.push("/");
+      console.log("cartHandler");
     },
   },
   mounted() {
