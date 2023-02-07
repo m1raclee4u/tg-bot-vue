@@ -1,20 +1,20 @@
 <template>
-  <div class="ItemCart">
+  <div class="product">
     <img
-      class="card__img"
+      class="img"
       :src="'https://frontend-test.idaproject.com' + product.photo"
       :alt="product.name"
     />
-    <!-- <div class="tag">
-      <p>ХИТ</p>
-    </div> -->
-    <div class="top">
-      <p>{{ product.name }}</p>
-      <p class="quantity">осталось {{ 3 }} шт.</p>
+    <div class="title">{{ product.name }}</div>
+    <div class="description">{{ product.description }}</div>
+    <div class="price">
+      <span
+        >Стоимость: <b>{{ product.price }}</b></span
+      >
     </div>
-    <div class="ItemCart__price">
-      <p>{{ product.price }} ₽</p>
-    </div>
+    <Button class="add-btn" @click="addProductHandler">
+      Добавить в корзину
+    </Button>
   </div>
 </template>
 
@@ -36,106 +36,70 @@ export default {
       // favorites: [],
     };
   },
+  methods: {
+    addProductHandler(){
+      if (tg.MainButton.isVisible){
+        tg.MainButton.hide()
+      }
+      else {
+        tg.MainButton.show()
+      }
+    }
+  }
 };
 </script>
 
 <style lang="scss" scoped>
-.input_color_1 {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-}
-.top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-  font-weight: 400;
-
-  .quantity {
-    font-size: 14px;
-    line-height: 17px;
-    color: #a9a1a1;
-    font-weight: 400;
-  }
-}
-.tag {
-  position: absolute;
-  width: 58px;
-  height: 58px;
-  left: 14px;
-  top: 14px;
-  border-radius: 50%;
-  border: 1px solid #685f5f;
-  text-align: center;
-  line-height: 100%;
-  p {
-    position: absolute;
-    top: 17px;
-    left: 13px;
-    color: #685f5f;
-  }
-}
-
-.ItemCart {
+.product {
   position: relative;
-  max-width: 170px;
-  width: 100%;
-//   padding-bottom: 60px;
-  img {
-    width: 100%;
-    height: auto;
-    background-color: black;
-    margin-top: 100px;
-    margin-bottom: 25px;
-  }
-  p {
-    font-family: "RF Dewi";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 19px;
-
-    /* основной */
-
-    color: #685f5f;
-  }
-}
-.colors {
-  gap: 10px;
-}
-.ItemCart__price {
   display: flex;
-  align-items: center;
-  gap: 30px;
-  p {
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 23px;
-
-    /* основной */
-
-    color: #685f5f;
-  }
-  .old {
-    color: grey;
-    text-decoration: line-through;
-  }
+  flex-direction: column;
+  gap: 7px;
+  box-shadow: -1px 5px 8px 0px rgba(34, 60, 80, 0.2); /* border: 1px solid var(--tg-theme-button-color); */
+  padding: 15px;
+  max-width: 170px;
+  background-color: white;
+  border-radius: 6px;
+  box-sizing: border-box;
+  height: 100%;
+  justify-content: space-between;
 }
-@media (max-width: 1280px) {
-  .ItemCart {
-    // padding-bottom: 60px;
-    img {
-      max-width: 100%;
-      height: auto;
-      background-color: black;
-      margin-bottom: 25px;
-    }
-    p {
-      margin-bottom: 20px;
-      font-size: 13px;
-    }
-  }
+
+.img {
+  width: 100%;
+  background: lightgray;
+  height: 100px;
+  margin: 0 auto;
+  background: var(--tg-theme-button-color);
+}
+
+.description {
+  font-size: 0.7em;
+  color: #727272;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-style: italic;
+}
+
+.add-btn {
+  width: 100%;
+}
+
+.price {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: black;
+}
+.price span {
+  /* color: ; */
+}
+
+.title {
+  max-width: 170px;
+  word-break: break-word;
+  font-size: 12px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: black;
 }
 </style>

@@ -2,10 +2,16 @@
   <div class="web-app">
     <button @click="log">123</button>
     <div class="wrapper">
-      <div v-for="product in this.products.slice(0, 10)" :key="product.id">
+      <div v-for="product in this.paginatedProducts" :key="product.id">
         <product :product="product"/>
       </div>
     </div>
+    <button
+          @click="loadMore"
+          v-if="currentPage * maxPerPage < this.products.length"
+        >
+          Загрузить больше
+        </button>
   </div>
 </template>
 
@@ -15,9 +21,31 @@ import product from '../components/product.vue'
 export default {
   components: { product },
   name: 'IndexPage',
+  data(){
+    return{
+      currentPage: 1,
+      maxPerPage: 10,
+      showReadMore: true,
+    }
+  },
   computed: {
     products() {
       return this.$store.getters["products"];
+    },
+    foundResults() {
+      return this.products.length;
+    },
+    totalResults() {
+      return Object.keys(this.orders).length;
+    },
+    pageCount() {
+      return Math.ceil(this.totalResults / this.maxPerPage);
+    },
+    pageOffest() {
+      return this.maxPerPage * this.currentPage;
+    },
+    paginatedProducts() {
+      return this.products.slice(0, this.currentPage * this.maxPerPage);
     },
   },
   beforeMount() {
@@ -28,7 +56,10 @@ export default {
   methods:{
     log(){
       console.log(this.products);
-    }
+    },
+    loadMore() {
+      this.currentPage += 1;
+    },
   }
 }
 </script>
