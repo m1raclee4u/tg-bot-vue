@@ -1,190 +1,141 @@
 <template>
-  <!-- Карточка товара -->
-  <div class="card">
-    <!-- Верхняя часть -->
-    <div class="card__top">
-      <!-- Изображение-ссылка товара -->
-      <a href="#" class="card__image">
-        <img
-          src="https://appdom.ru/image/cache/catalog/iphone/ip14/apple-iphone-14-product-red-1-1000x1000.jpg"
-          alt="Apple IPhone 14 PRO Max Gold"
-        />
-      </a>
-      <!-- Скидка на товар -->
-      <div class="card__label">-10%</div>
+  <div class="ItemCart">
+    <img
+      class="card__img"
+      :src="'https://frontend-test.idaproject.com' + product.photo"
+      :alt="product.name"
+    />
+    <!-- <div class="tag">
+      <p>ХИТ</p>
+    </div> -->
+    <div class="top">
+      <p>{{ product.name }}</p>
+      <p class="quantity">осталось {{ 3 }} шт.</p>
     </div>
-    <!-- Нижняя часть -->
-    <div class="card__bottom">
-      <!-- Цены на товар (с учетом скидки и без)-->
-      <div class="card__prices">
-        <div class="card__price card__price--discount">135 000</div>
-        <div class="card__price card__price--common">150 000</div>
-      </div>
-      <!-- Ссылка-название товара -->
-      <a href="#" class="card__title">
-        Смартфон Apple IPhone 14 Pro Max 256Gb, золотой
-      </a>
-      <!-- Кнопка добавить в корзину -->
-      <button @click="addProducttoCart" class="card__add">В корзину</button>
+    <div class="ItemCart__price">
+      <p>{{ product.price }} ₽</p>
     </div>
   </div>
 </template>
 
 <script>
+
+import Swiper, { Navigation, Pagination, Autoplay } from "swiper";
+import "swiper/swiper-bundle.css";
+
+Swiper.use([Navigation, Pagination, Autoplay]);
 export default {
-  methods: {
-    addProducttoCart() {
-      console.log(tg.MainButton);
-      if (tg.MainButton.isVisible) {
-        tg.MainButton.hide();
-      } else {
-        tg.MainButton.show();
-      }
+  props: {
+    product: {
+      type: Object,
+      required: true,
     },
+  },
+  data() {
+    return {
+      // favorites: [],
+    };
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.card {
-  width: 225px;
-  min-height: 350px;
-  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+.input_color_1 {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+}
+.top {
   display: flex;
-  flex-direction: column; /* Размещаем элементы в колонку */
-  border-radius: 4px;
-  transition: 0.2s;
-  position: relative;
-}
-
-/* При наведении на карточку - меняем цвет тени */
-.card:hover {
-  box-shadow: 4px 8px 16px rgba(255, 102, 51, 0.2);
-}
-
-.card__top {
-  flex: 0 0 220px; /* Задаем высоту 220px, запрещаем расширение и сужение по высоте */
-  position: relative;
-  overflow: hidden; /* Скрываем, что выходит за пределы */
-}
-
-/* Контейнер для картинки */
-.card__image {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.card__image > img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* Встраиваем картинку в контейнер card__image */
-  transition: 0.2s;
-}
-
-/* При наведении - увеличиваем картинку */
-.card__image:hover > img {
-  transform: scale(1.1);
-}
-
-/* Размещаем скидку на товар относительно изображения */
-.card__label {
-  padding: 4px 8px;
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  background: #ff6633;
-  border-radius: 4px;
-  font-weight: 400;
-  font-size: 16px;
-  color: #fff;
-}
-
-.card__bottom {
-  display: flex;
-  flex-direction: column;
-  flex: 1 0 auto; /* Занимаем всю оставшуюся высоту карточки */
-  padding: 10px;
-}
-
-.card__prices {
-  display: flex;
-  margin-bottom: 10px;
-  flex: 0 0 50%; /* Размещаем цены равномерно в две колонки */
-}
-
-.card__price::after {
-  content: "₽";
-  margin-left: 4px;
-  position: relative;
-}
-
-.card__price--discount {
-  font-weight: 700;
-  font-size: 19px;
-  color: #414141;
-  display: flex;
-  flex-wrap: wrap-reverse;
-}
-
-.card__price--discount::before {
-  content: "Со скидкой";
-  font-weight: 400;
-  font-size: 13px;
-  color: #bfbfbf;
-}
-
-.card__price--common {
-  font-weight: 400;
-  font-size: 17px;
-  color: #606060;
-  display: flex;
-  flex-wrap: wrap-reverse;
-  justify-content: flex-end;
-}
-
-.card__price--common::before {
-  content: "Обычная";
-  font-weight: 400;
-  font-size: 13px;
-  color: #bfbfbf;
-}
-
-.card__title {
-  text-decoration: none;
-  display: block;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 10px;
   font-weight: 400;
-  font-size: 17px;
-  line-height: 150%;
-  color: #414141;
-}
 
-.card__title:hover {
-  color: #ff6633;
+  .quantity {
+    font-size: 14px;
+    line-height: 17px;
+    color: #a9a1a1;
+    font-weight: 400;
+  }
 }
-
-.card__add {
-  display: block;
-  width: 100%;
-  font-weight: 400;
-  font-size: 17px;
-  color: #70c05b;
-  padding: 10px;
+.tag {
+  position: absolute;
+  width: 58px;
+  height: 58px;
+  left: 14px;
+  top: 14px;
+  border-radius: 50%;
+  border: 1px solid #685f5f;
   text-align: center;
-  border: 1px solid #70c05b;
-  border-radius: 4px;
-  cursor: pointer; /* Меняем курсор при наведении */
-  transition: 0.2s;
-  margin-top: auto; /* Прижимаем кнопку к низу карточки */
+  line-height: 100%;
+  p {
+    position: absolute;
+    top: 17px;
+    left: 13px;
+    color: #685f5f;
+  }
 }
 
-.card__add:hover {
-  border: 1px solid #ff6633;
-  background-color: #ff6633;
-  color: #fff;
+.ItemCart {
+  position: relative;
+  max-width: 405px;
+  width: 100%;
+//   padding-bottom: 60px;
+  img {
+    width: 100%;
+    height: auto;
+    background-color: black;
+    margin-top: 100px;
+    margin-bottom: 25px;
+  }
+  p {
+    font-family: "RF Dewi";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+
+    /* основной */
+
+    color: #685f5f;
+  }
+}
+.colors {
+  gap: 10px;
+}
+.ItemCart__price {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  p {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 23px;
+
+    /* основной */
+
+    color: #685f5f;
+  }
+  .old {
+    color: grey;
+    text-decoration: line-through;
+  }
+}
+@media (max-width: 1280px) {
+  .ItemCart {
+    // padding-bottom: 60px;
+    img {
+      max-width: 100%;
+      height: auto;
+      background-color: black;
+      margin-bottom: 25px;
+    }
+    p {
+      margin-bottom: 20px;
+      font-size: 13px;
+    }
+  }
 }
 </style>
