@@ -17,7 +17,7 @@
         >
       </div>
     </div>
-    <button-add-to-cart :product="product" class="add-btn" @click="addProductHandler"/>
+    <button-add-to-cart :product="product" class="add-btn" @addProductListener="addProductHandler"/>
   </div>
 </template>
 

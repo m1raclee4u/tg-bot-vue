@@ -36,6 +36,7 @@ export default {
       const delay = (ms) => new Promise((res) => setTimeout(res, ms));
       await delay(1000);
       this.addProduct(this.productComputed);
+      this.$emit('addProductListener');
     },
   },
 };
