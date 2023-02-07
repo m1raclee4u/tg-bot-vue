@@ -51,6 +51,7 @@ export default {
             },
             body: JSON.stringify(data)
         })
+        console.log('handler');
     },
   },
   mounted() {
