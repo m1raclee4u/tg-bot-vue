@@ -68,7 +68,7 @@ export default {
 .img {
   width: 100%;
   background: lightgray;
-  height: 100px;
+  height: auto;
   margin: 0 auto;
   background: var(--tg-theme-button-color);
 }
