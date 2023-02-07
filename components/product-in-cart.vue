@@ -39,6 +39,7 @@ export default {
   justify-content: space-between;
   height: 60px;
   width: 100%;  
+  color: var(--tg-theme-text-color);
   .product__product {
     display: flex;
     align-items: center;
