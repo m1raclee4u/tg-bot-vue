@@ -12,7 +12,7 @@
             <productInCart :product="product" />
           </div>
         </div>
-        <p class="tg-color" v-if="getProducts.length > 0">
+        <p @click="sendData" class="tg-color" v-if="getProducts.length > 0">
           Итого: {{ fullprice }} ₽
         </p>
       </div>
@@ -49,6 +49,7 @@ export default {
   },
   methods: {
     sendData() {
+      console.log("cartHandler_1");
       const { queryId } = useTelegram();
       var data = {
         products: this.getProducts,
@@ -63,7 +64,7 @@ export default {
         body: JSON.stringify(data),
       });
       //   this.$router.push("/");
-      console.log("cartHandler");
+      console.log("cartHandler_2");
     },
   },
   mounted() {
