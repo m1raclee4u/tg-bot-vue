@@ -55,7 +55,8 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 7px;
-  box-shadow: -1px 5px 8px 0px rgba(34, 60, 80, 0.2); /* border: 1px solid var(--tg-theme-button-color); */
+  // border: 1px solid var(--tg-theme-button-color);
+  box-shadow: -1px 5px 8px 0px var(--tg-theme-button-color); /* border: 1px solid var(--tg-theme-button-color); */
   padding: 15px;
   max-width: 170px;
   background-color: white;
