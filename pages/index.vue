@@ -76,6 +76,7 @@ export default {
   },
   updated() {
     tg.onEvent("mainButtonClicked", this.routeToCart);
+    tg.offEvent("mainButtonClicked", this.routeToCart);
   },
 };
 </script>

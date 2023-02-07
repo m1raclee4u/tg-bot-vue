@@ -64,6 +64,7 @@ export default {
   },
   updated() {
     tg.onEvent("mainButtonClicked", this.sendData);
+    tg.offEvent('mainButtonClicked', this.sendData)
   },
 };
 </script>
