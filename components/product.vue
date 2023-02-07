@@ -45,7 +45,7 @@ export default {
       if (tg.MainButton.isVisible) {
         tg.MainButton.hide();
       } else {
-        tg.MainButton.text('Перейти в корзину')
+        tg.MainButton.setText('Перейти в корзину');
         tg.MainButton.show();
       }
     },
