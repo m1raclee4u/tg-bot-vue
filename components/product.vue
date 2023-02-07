@@ -17,16 +17,18 @@
         >
       </div>
     </div>
-    <Button class="add-btn" @click="addProductHandler"> Добавить </Button>
+    <button-add-to-cart :product="product" class="add-btn" @click="addProductHandler"/>
   </div>
 </template>
 
 <script>
 import Swiper, { Navigation, Pagination, Autoplay } from "swiper";
 import "swiper/swiper-bundle.css";
+import buttonAddToCart from './buttons/button-add-to-cart.vue';
 
 Swiper.use([Navigation, Pagination, Autoplay]);
 export default {
+  components: { buttonAddToCart },
   props: {
     product: {
       type: Object,
@@ -43,6 +45,7 @@ export default {
       if (tg.MainButton.isVisible) {
         tg.MainButton.hide();
       } else {
+        tg.MainButton.text('Перейти в корзину')
         tg.MainButton.show();
       }
     },
@@ -67,7 +70,7 @@ export default {
   &:hover {
     box-shadow: 0px 10px 20px -10px var(--tg-theme-hint-color);
   }
-  .info{
+  .info {
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -101,7 +104,6 @@ export default {
   font-weight: 400;
   font-size: 10px;
   text-transform: uppercase;
-  // background: blue;
   background: var(--tg-theme-button-color);
   color: var(--tg-theme-button-text-color);
 }

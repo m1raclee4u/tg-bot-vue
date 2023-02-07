@@ -2,31 +2,31 @@
   <div class="web-app">
     <div class="wrapper">
       <div v-for="product in this.paginatedProducts" :key="product.id">
-        <product :product="product"/>
+        <product :product="product" />
       </div>
     </div>
     <button
-          @click="loadMore"
-          v-if="currentPage * maxPerPage < this.products.length"
-          class="load-more"
-        >
-          Загрузить больше
-        </button>
+      @click="loadMore"
+      v-if="currentPage * maxPerPage < this.products.length"
+      class="load-more"
+    >
+      Загрузить больше
+    </button>
   </div>
 </template>
 
 <script>
-import product from '../components/product.vue'
+import product from "../components/product.vue";
 
 export default {
   components: { product },
-  name: 'IndexPage',
-  data(){
-    return{
+  name: "IndexPage",
+  data() {
+    return {
       currentPage: 1,
       maxPerPage: 10,
       showReadMore: true,
-    }
+    };
   },
   computed: {
     products() {
@@ -50,33 +50,33 @@ export default {
   },
   beforeMount() {
     // if (this.$store.getters["products"].length === 0) {
-      this.$store.dispatch("fetchProducts");
+    this.$store.dispatch("fetchProducts");
     // }
   },
-  methods:{
-    log(){
+  methods: {
+    log() {
       console.log(this.products);
     },
     loadMore() {
       this.currentPage += 1;
     },
-  }
-}
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-.web-app{
+.web-app {
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding: 20px 0;
 }
-.wrapper{
+.wrapper {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
 }
-.load-more{
+.load-more {
   width: 75%;
   margin: 0 auto;
   padding: 15px;
