@@ -54,6 +54,14 @@ export default {
     // if (this.$store.getters["products"].length === 0) {
     this.$store.dispatch("fetchProducts");
     // }
+  },  
+  methods: {
+    log() {
+      console.log(this.products);
+    },
+    loadMore() {
+      this.currentPage += 1;
+    },
   },
   mounted(){
     if (this.products.length === 0) {
@@ -62,14 +70,6 @@ export default {
         tg.MainButton.setText('Перейти в корзину');
         tg.MainButton.show();
       }
-  },
-  methods: {
-    log() {
-      console.log(this.products);
-    },
-    loadMore() {
-      this.currentPage += 1;
-    },
   },
 };
 </script>
