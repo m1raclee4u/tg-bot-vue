@@ -50,7 +50,7 @@ export default {
       return this.products.slice(0, this.currentPage * this.maxPerPage);
     },
   },
-  beforeCreate(){
+  created(){
     tg.offEvent("mainButtonClicked", this.sendData);
     console.log("indexHandler");
   },

@@ -55,7 +55,7 @@ export default {
         console.log('cartHandler');
     },
   },
-  beforeCreate(){
+  created(){
     tg.offEvent("mainButtonClicked", this.routeToCart);
     console.log("cartHandler");
   },
