@@ -49,6 +49,11 @@ export default {
     paginatedProducts() {
       return this.products.slice(0, this.currentPage * this.maxPerPage);
     },
+  },  
+  beforeMount() {
+    // if (this.$store.getters["products"].length === 0) {
+    this.$store.dispatch("fetchProducts");
+    // }
   },
   mounted(){
     if (this.products.length === 0) {
@@ -57,11 +62,6 @@ export default {
         tg.MainButton.setText('Перейти в корзину');
         tg.MainButton.show();
       }
-  },
-  beforeMount() {
-    // if (this.$store.getters["products"].length === 0) {
-    this.$store.dispatch("fetchProducts");
-    // }
   },
   methods: {
     log() {
