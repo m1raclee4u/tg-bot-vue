@@ -79,7 +79,7 @@ export default {
 .load-more{
   width: 75%;
   margin: 0 auto;
-  padding: 10px 15px;
+  padding: 15px;
   border-radius: 20px;
   border: none;
   background: var(--tg-theme-button-color);
