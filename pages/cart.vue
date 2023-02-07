@@ -49,9 +49,9 @@ export default {
   },
   methods: {
     sendData() {
-      console.log("cartHandler_1");
       const { queryId } = useTelegram();
       var data = {
+        user,
         products: this.getProducts,
         price: this.fullPrice,
         queryId,
@@ -63,8 +63,6 @@ export default {
         },
         body: JSON.stringify(data),
       });
-      //   this.$router.push("/");
-      console.log("cartHandler_2");
     },
   },
   mounted() {
