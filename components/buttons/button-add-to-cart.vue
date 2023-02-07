@@ -1,5 +1,5 @@
 <template>
-<div class="">
+<div class="buttons">
   <button @click="buyClickHandler" class="add-btn" v-if="!isProductAdded">
     Добавить
   </button>
@@ -49,6 +49,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.buttons{
+  display: flex;
+}
 .add-btn {
   width: 75%;
   margin: 7px auto;
