@@ -77,7 +77,8 @@ export default {
   gap: 20px;
 }
 .load-more{
-  width: 100%;
+  width: 75%;
+  margin: 0 auto;
   padding: 10px 15px;
   border-radius: 20px;
   border: none;
