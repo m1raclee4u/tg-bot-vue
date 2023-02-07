@@ -65,15 +65,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.web-app{
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
 .wrapper{
   display: flex;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: 20px;
 }
 .load-more{
   width: 100%;
   padding: 10px 15px;
   border-radius: 20px;
+  border: none;
   background: var(--tg-theme-button-color);
   color: var(--tg-theme-button-text-color);
 }
