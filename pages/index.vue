@@ -50,6 +50,10 @@ export default {
       return this.products.slice(0, this.currentPage * this.maxPerPage);
     },
   },
+  beforeCreate(){
+    tg.offEvent("mainButtonClicked", this.sendData);
+    console.log("indexHandler");
+  },
   beforeMount() {
     // if (this.$store.getters["products"].length === 0) {
     this.$store.dispatch("fetchProducts");
@@ -60,9 +64,7 @@ export default {
       console.log(this.products);
     },
     routeToCart() {
-      tg.offEvent("mainButtonClicked", this.routeToCart);
       this.$router.push("/cart");
-      console.log("indexHandler");
     },
     loadMore() {
       this.currentPage += 1;

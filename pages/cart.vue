@@ -39,7 +39,6 @@ export default {
   },
   methods: {
     sendData() {
-        tg.offEvent("mainButtonClicked", this.sendData);
         // const data = {
         //     products: this.getProducts,
         //     price: this.fullPrice,
@@ -52,8 +51,13 @@ export default {
         //     },
         //     body: JSON.stringify(data)
         // })
+        this.$router.push("/");
         console.log('cartHandler');
     },
+  },
+  beforeCreate(){
+    tg.offEvent("mainButtonClicked", this.routeToCart);
+    console.log("cartHandler");
   },
   mounted() {
     if (this.getProducts.length === 0) {
