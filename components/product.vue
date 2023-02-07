@@ -65,7 +65,7 @@ export default {
   height: 100%;
   justify-content: space-between;
   &:hover {
-    box-shadow: 0px 10px 20px -5px var(--tg-theme-hint-color);
+    box-shadow: 0px 10px 20px -15px var(--tg-theme-hint-color);
   }
   .info{
     display: flex;
