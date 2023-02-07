@@ -57,7 +57,7 @@ export default {
   gap: 7px;
   // border: 1px solid var(--tg-theme-button-color);
   background-color: var(--tg-theme-bg-color);
-  box-shadow: -1px 5px 8px 0px var(--tg-theme-button-color); /* border: 1px solid var(--tg-theme-button-color); */
+  box-shadow: -1px 5px 8px 0px var(--tg-theme-hint-color); /* border: 1px solid var(--tg-theme-button-color); */
   padding: 15px;
   max-width: 170px;
   border-radius: 6px;
@@ -71,7 +71,6 @@ export default {
   height: auto;
   margin: 0 auto;
   background-color: var(--tg-theme-bg-color);
-
 }
 
 .description {
@@ -84,6 +83,10 @@ export default {
 
 .add-btn {
   width: 100%;
+  border: none;
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding: 9px 8px;
   background: var(--tg-theme-button-color);
   color: var(--tg-theme-button-text-color);
 }
