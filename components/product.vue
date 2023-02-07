@@ -79,8 +79,6 @@ export default {
 .description {
   font-size: 0.45em;
   color: #727272;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-style: italic;
 }
 
@@ -91,8 +89,6 @@ export default {
   border-radius: 20px;
   box-sizing: border-box;
   padding: 9px 8px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 400;
   font-size: 10px;
   text-transform: uppercase;
@@ -101,8 +97,6 @@ export default {
 }
 
 .price {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   color: var(--tg-theme-text-color);
   font-size: 12px;
 }
@@ -114,8 +108,6 @@ export default {
   max-width: 170px;
   word-break: break-word;
   font-size: 12px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   color: var(--tg-theme-text-color);
 }
 </style>

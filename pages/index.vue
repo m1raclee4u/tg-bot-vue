@@ -1,6 +1,7 @@
 <template>
   <div class="web-app">
-    <div class="wrapper">
+    <headerComponent/>
+    <div class="wrapper flex-wrap">
       <div v-for="product in this.paginatedProducts" :key="product.id">
         <product :product="product" />
       </div>
@@ -17,9 +18,10 @@
 
 <script>
 import product from "../components/product.vue";
+import headerComponent from "../components/header-component.vue";
 
 export default {
-  components: { product },
+  components: { product, headerComponent },
   name: "IndexPage",
   data() {
     return {
@@ -65,16 +67,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.web-app {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 20px 0;
-}
-.wrapper {
-  display: flex;
+
+
+.flex-wrap{
   flex-wrap: wrap;
-  gap: 20px;
+
 }
 .load-more {
   width: 75%;

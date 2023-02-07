@@ -1,0 +1,59 @@
+<template>
+  <div class="web-app">
+    <header-component />
+    <div class="wrapper">
+      <div class="cart">
+        <div class="productsInCart">
+          <div
+            class="oneProduct"
+            v-for="product in getProducts"
+            :key="product.id"
+          >
+            <productInCart :product="product" />
+          </div>
+        </div>
+        <p>Итого: {{fullprice}} ₽</p>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import productInCart from "../components/product-in-cart.vue";
+import { mapGetters } from "vuex";
+export default {
+  components: { productInCart },
+  computed: {
+    ...mapGetters("cart", ["getProducts"]),
+    fullprice() {
+      let fullPrice = 0;
+      for (const item in this.getProducts) {
+        if (Object.hasOwnProperty.call(this.getProducts, item)) {
+          const element = this.getProducts[item];
+          fullPrice += element.price;
+        }
+      }
+      return fullPrice;
+    },
+  },
+  mounted() {
+    if (this.getProducts.length === 0) {
+      tg.MainButton.hide();
+    } else {
+      tg.MainButton.setText("Перейти в корзину");
+      tg.MainButton.show();
+    }
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+.cart {
+  width: 100%;
+  // max-width: 100%;
+}
+.oneProduct {
+  margin-bottom: 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.226);
+}
+</style>
