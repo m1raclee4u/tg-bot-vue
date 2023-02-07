@@ -6,10 +6,10 @@
       :alt="product.name"
     />
     <div class="title">{{ product.name }}</div>
-    <div class="description">{{ product.description }}</div>
+    <div class="description">8x2.2 ГГц, 4 ГБ, 2 SIM, IPS, 2340x1080, камера 48+5 Мп, 3G, 4G, GPS, 4000 мАч</div>
     <div class="price">
       <span
-        >Стоимость: <b>{{ product.price }}</b></span
+        >Стоимость: <b>{{ product.price }} ₽</b></span
       >
     </div>
     <Button class="add-btn" @click="addProductHandler"> Добавить </Button>
@@ -50,12 +50,12 @@ export default {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 5px;
   // border: 1px solid var(--tg-theme-button-color);
   background-color: var(--tg-theme-bg-color);
-  padding: 15px;
+  padding: 10px;
   max-width: 170px;
-  border-radius: 6px;
+  border-radius: 10px;
   box-sizing: border-box;
   height: 100%;
   justify-content: space-between;
@@ -72,7 +72,7 @@ export default {
 }
 
 .description {
-  font-size: 0.7em;
+  font-size: 0.45em;
   color: #727272;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -89,6 +89,7 @@ export default {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 400;
+  font-size: 10px;
   text-transform: uppercase;
   // background: blue;
   background: var(--tg-theme-button-color);
@@ -99,6 +100,7 @@ export default {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   color: var(--tg-theme-text-color);
+  font-size: 12px;
 }
 .price span {
   color: var(--tg-theme-text-color);
