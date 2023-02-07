@@ -38,13 +38,8 @@ export default {
       await delay(200);
 
       this.addProduct(this.productComputed);
-
-      if (this.products.length === 0) {
-        tg.MainButton.hide();
-      } else {
         tg.MainButton.setText('Перейти в корзину');
         tg.MainButton.show();
-      }
     },
   },
 };
