@@ -80,15 +80,16 @@ export default {
 }
 
 .add-btn {
-  width: 100%;
+  width: 75%;
   border: none;
-  border-radius: 50%;
+  border-radius: 20px;
   box-sizing: border-box;
   padding: 9px 8px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 400;
   text-transform: uppercase;
+  // background: blue;
   background: var(--tg-theme-button-color);
   color: var(--tg-theme-button-text-color);
 }
