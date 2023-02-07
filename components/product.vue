@@ -17,7 +17,7 @@
         >
       </div>
     </div>
-    <button-add-to-cart :product="product" class="add-btn"/>
+    <button-add-to-cart :product="product" />
   </div>
 </template>
 
@@ -80,20 +80,6 @@ export default {
   font-size: 0.45em;
   color: #727272;
   font-style: italic;
-}
-
-.add-btn {
-  width: 75%;
-  margin: 7px auto;
-  border: none;
-  border-radius: 20px;
-  box-sizing: border-box;
-  padding: 9px 8px;
-  font-weight: 400;
-  font-size: 10px;
-  text-transform: uppercase;
-  background: var(--tg-theme-button-color);
-  color: var(--tg-theme-button-text-color);
 }
 
 .price {
