@@ -9,15 +9,24 @@
       <h5>{{ product.name }}</h5>
     </div>
     <p>{{ product.price }} ₽</p>
-    <div class="delete"></div>
+    <div @click="deleteClickHandler" class="delete"></div>
   </div>
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   props: {
     product: {
       type: Object,
+    },
+  },
+  methods: {
+    ...mapActions({
+      removeProduct: "cart/removeProduct",
+    }),
+    deleteClickHandler() {
+      this.removeProduct(this.product);
     },
   },
 };

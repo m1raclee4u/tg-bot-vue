@@ -2,7 +2,7 @@
   <div class="web-app">
     <header-component />
     <div class="wrapper">
-      <div class="cart">
+      <div v-if="this.getProducts.length > 0" class="cart">
         <div class="productsInCart">
           <div
             class="oneProduct"
@@ -14,13 +14,14 @@
         </div>
         <p v-if="getProducts.length > 0">Итого: {{ fullprice }} ₽</p>
       </div>
+      <p v-if="this.getProducts.length === 0" style="text-align: center; width: 100%">В вашей корзине пусто, <br/> но наш <Nuxt-link to="/"> каталог полон товаров.</Nuxt-link></p>
     </div>
   </div>
 </template>
 
 <script>
 import productInCart from "../components/product-in-cart.vue";
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   components: { productInCart },
@@ -67,12 +68,6 @@ export default {
       tg.offEvent("mainButtonClicked", this.sendData);
     });
   },
-//   updated() {
-//     tg.onEvent("mainButtonClicked", this.sendData);
-//   },
-//   beforeDestroy() {
-//     tg.offEvent("mainButtonClicked", this.sendData);
-//   },
 };
 </script>
 
