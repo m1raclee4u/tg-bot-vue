@@ -12,7 +12,7 @@
             <productInCart :product="product" />
           </div>
         </div>
-        <p v-if="getProducts.length > 0">Итого: {{fullprice}} ₽</p>
+        <p v-if="getProducts.length > 0">Итого: {{ fullprice }} ₽</p>
       </div>
     </div>
   </div>
@@ -37,13 +37,32 @@ export default {
       return fullPrice;
     },
   },
+  methods: {
+    sendData() {
+        const data = {
+            products: this.getProducts,
+            price: this.fullPrice,
+            queryId
+        }
+        fetch('http://localhost:8000/web-data', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
+    },
+  },
   mounted() {
     if (this.getProducts.length === 0) {
       tg.MainButton.hide();
     } else {
       tg.MainButton.setText("Оформить заказ");
       tg.MainButton.show();
-    }    
+    }
+  },
+  updated() {
+    tg.onEvent("mainButtonClicked", this.sendData);
   },
 };
 </script>
@@ -52,7 +71,7 @@ export default {
 .cart {
   width: 100%;
   // max-width: 100%;
-  p{
+  p {
     text-align: right;
   }
 }
