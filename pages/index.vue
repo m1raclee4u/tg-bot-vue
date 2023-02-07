@@ -50,13 +50,11 @@ export default {
       return this.products.slice(0, this.currentPage * this.maxPerPage);
     },
   },
-  created(){
-    tg.offEvent("mainButtonClicked", this.sendData);
-    console.log("indexHandler");
-  },
   beforeMount() {
     // if (this.$store.getters["products"].length === 0) {
     this.$store.dispatch("fetchProducts");
+    tg.offEvent("mainButtonClicked", this.sendData);
+    console.log("indexHandler");
     // }
   },
   methods: {
