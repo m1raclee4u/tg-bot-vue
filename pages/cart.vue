@@ -55,10 +55,6 @@ export default {
         console.log('cartHandler');
     },
   },
-  beforeMount(){
-    tg.offEvent("mainButtonClicked", this.routeToCart);
-    console.log("cartHandler");
-  },
   mounted() {
     if (this.getProducts.length === 0) {
       tg.MainButton.hide();
@@ -68,7 +64,9 @@ export default {
     }
   },
   updated() {
-    tg.onEvent("mainButtonClicked", this.sendData);
+      let f = () => this.sendData;
+      tg.onEvent("mainButtonClicked", f);
+      tg.offEvent("mainButtonClicked", f);         
   },
 };
 </script>

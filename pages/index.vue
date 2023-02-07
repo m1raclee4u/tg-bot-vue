@@ -51,11 +51,9 @@ export default {
     },
   },
   beforeMount() {
-    // if (this.$store.getters["products"].length === 0) {
-    this.$store.dispatch("fetchProducts");
-    tg.offEvent("mainButtonClicked", this.sendData);
-    console.log("indexHandler");
-    // }
+    if (this.$store.getters["products"].length === 0) {
+      this.$store.dispatch("fetchProducts");
+    }
   },
   methods: {
     log() {
@@ -77,7 +75,9 @@ export default {
     }
   },
   updated() {
-    tg.onEvent("mainButtonClicked", this.routeToCart);
+      let f = () => this.routeToCart;
+      tg.onEvent("mainButtonClicked", f);
+      tg.offEvent("mainButtonClicked", f);         
   },
 };
 </script>
