@@ -71,6 +71,9 @@ export default {
         tg.MainButton.show();
       }
   },
+  updated(){
+    tg.onEvent('mainButtonClicked', this.log)
+  }
 };
 </script>
 

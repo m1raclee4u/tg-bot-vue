@@ -12,7 +12,7 @@
             <productInCart :product="product" />
           </div>
         </div>
-        <p>Итого: {{fullprice}} ₽</p>
+        <p v-if="getProducts.length > 0">Итого: {{fullprice}} ₽</p>
       </div>
     </div>
   </div>
@@ -21,6 +21,7 @@
 <script>
 import productInCart from "../components/product-in-cart.vue";
 import { mapGetters } from "vuex";
+
 export default {
   components: { productInCart },
   computed: {
@@ -40,7 +41,7 @@ export default {
     if (this.getProducts.length === 0) {
       tg.MainButton.hide();
     } else {
-      tg.MainButton.setText("Заказать");
+      tg.MainButton.setText("Оформить заказ");
       tg.MainButton.show();
     }    
   },
@@ -51,6 +52,9 @@ export default {
 .cart {
   width: 100%;
   // max-width: 100%;
+  p{
+    text-align: right;
+  }
 }
 .oneProduct {
   margin-bottom: 5px;
