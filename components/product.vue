@@ -12,14 +12,11 @@
         >Стоимость: <b>{{ product.price }}</b></span
       >
     </div>
-    <Button class="add-btn" @click="addProductHandler">
-      Добавить
-    </Button>
+    <Button class="add-btn" @click="addProductHandler"> Добавить </Button>
   </div>
 </template>
 
 <script>
-
 import Swiper, { Navigation, Pagination, Autoplay } from "swiper";
 import "swiper/swiper-bundle.css";
 
@@ -37,15 +34,14 @@ export default {
     };
   },
   methods: {
-    addProductHandler(){
-      if (tg.MainButton.isVisible){
-        tg.MainButton.hide()
+    addProductHandler() {
+      if (tg.MainButton.isVisible) {
+        tg.MainButton.hide();
+      } else {
+        tg.MainButton.show();
       }
-      else {
-        tg.MainButton.show()
-      }
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -63,7 +59,7 @@ export default {
   box-sizing: border-box;
   height: 100%;
   justify-content: space-between;
-  &:hover{
+  &:hover {
     box-shadow: -1px 1px 2px 1px var(--tg-theme-hint-color);
   }
 }
@@ -86,10 +82,11 @@ export default {
 .add-btn {
   width: 100%;
   border: none;
-  border-radius: 8px;
+  border-radius: 50%;
   box-sizing: border-box;
   padding: 9px 8px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 400;
   text-transform: uppercase;
   background: var(--tg-theme-button-color);
@@ -102,7 +99,7 @@ export default {
   color: var(--tg-theme-text-color);
 }
 .price span {
-   color: var(--tg-theme-text-color); 
+  color: var(--tg-theme-text-color);
 }
 
 .title {
