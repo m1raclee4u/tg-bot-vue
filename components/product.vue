@@ -57,13 +57,15 @@ export default {
   gap: 7px;
   // border: 1px solid var(--tg-theme-button-color);
   background-color: var(--tg-theme-bg-color);
-  box-shadow: -1px 5px 8px 0px var(--tg-theme-hint-color); /* border: 1px solid var(--tg-theme-button-color); */
   padding: 15px;
   max-width: 170px;
   border-radius: 6px;
   box-sizing: border-box;
   height: 100%;
   justify-content: space-between;
+  &:hover{
+    box-shadow: -1px 1px 2px 1px var(--tg-theme-hint-color);
+  }
 }
 
 .img {
