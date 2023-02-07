@@ -40,9 +40,9 @@ export default {
     if (this.getProducts.length === 0) {
       tg.MainButton.hide();
     } else {
-      tg.MainButton.setText("Перейти в корзину");
+      tg.MainButton.setText("Заказать");
       tg.MainButton.show();
-    }
+    }    
   },
 };
 </script>

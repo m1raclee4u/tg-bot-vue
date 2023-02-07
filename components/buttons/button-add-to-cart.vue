@@ -35,13 +35,14 @@ export default {
     async buyClickHandler() {
       const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
-      await delay(200);
+      await delay(100);
 
       this.addProduct(this.productComputed);
         tg.MainButton.setText('Перейти в корзину');
         tg.MainButton.show();
     },
   },
+  
 };
 </script>
 

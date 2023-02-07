@@ -50,6 +50,14 @@ export default {
       return this.products.slice(0, this.currentPage * this.maxPerPage);
     },
   },
+  mounted(){
+    if (this.products.length === 0) {
+        tg.MainButton.hide();
+      } else {
+        tg.MainButton.setText('Перейти в корзину');
+        tg.MainButton.show();
+      }
+  },
   beforeMount() {
     // if (this.$store.getters["products"].length === 0) {
     this.$store.dispatch("fetchProducts");
