@@ -1,15 +1,12 @@
 <template>
   <div class="product">
-    <img
-      class="img"
-      :src="'https://frontend-test.idaproject.com' + product.photo"
-      :alt="product.name"
-    />
+    <img class="img" :src="product.photo" :alt="product.name" />
     <div class="info">
-      <div class="title">{{ product.name }}</div>
+      <div class="title">
+        {{ product.title }}
+      </div>
       <div class="description">
-        8x2.2 ГГц, 4 ГБ, 2 SIM, IPS, 2340x1080, камера 48+5 Мп, 3G, 4G, GPS,
-        4000 мАч
+        {{ product.desc }}
       </div>
       <div class="price">
         <span
@@ -24,7 +21,7 @@
 <script>
 import Swiper, { Navigation, Pagination, Autoplay } from "swiper";
 import "swiper/swiper-bundle.css";
-import buttonAddToCart from './buttons/button-add-to-cart.vue';
+import buttonAddToCart from "./buttons/button-add-to-cart.vue";
 
 Swiper.use([Navigation, Pagination, Autoplay]);
 export default {
@@ -40,8 +37,7 @@ export default {
       // favorites: [],
     };
   },
-  methods: {
-  },
+  methods: {},
 };
 </script>
 
