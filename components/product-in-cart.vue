@@ -3,12 +3,12 @@
     <div class="product__product">
       <img
         class="cart__image"
-        :src="'https://frontend-test.idaproject.com' + product.photo"
+        :src="product.photo"
         :alt="product.name"
       />
       <h5>{{ product.name }}</h5>
     </div>
-    <p>{{ product.price }} ₽</p>
+    <p>{{ product.price }}₽</p>
     <div @click="deleteClickHandler" class="delete"></div>
   </div>
 </template>
