@@ -6,7 +6,7 @@
         :src="product.photo"
         :alt="product.name"
       />
-      <h5>{{ product.name }}</h5>
+      <h5>{{ product.title }}</h5>
     </div>
     <p>{{ product.price }}₽</p>
     <div @click="deleteClickHandler" class="delete"></div>
