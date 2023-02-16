@@ -9,12 +9,12 @@ export const state = () => ({
 export const mutations = {
   ADD_PRODUCT(state, product) {
     let arr = state.products
-    if (!arr.find(p => p.id === product.id))
+    if (!arr.find(p => p.code === product.code))
       state.products = [...state.products, product]
   },
   REMOVE_PRODUCT(state, product) {
     let arr = state.products
-    arr = arr.splice(arr.indexOf(arr.find((p) => p.id === product.id), 1))
+    arr = arr.splice(arr.indexOf(arr.find((p) => p.code === product.code), 1))
   },
 }
 export const actions = {

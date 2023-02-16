@@ -1,16 +1,16 @@
 <template>
   <div class="product">
-    <img class="img" :src="product.photo" :alt="product.name" />
+    <img class="img" :src="product.photo"/>
     <div class="info">
       <div class="title">
-        {{ product.title }}
+        {{ stringRemoveNumberName }}
       </div>
       <div class="description">
         {{ product.desc }}
       </div>
       <div class="price">
         <span
-          >Стоимость: <b>{{ product.price }} ₽</b></span
+          >Стоимость: <b>{{ stringRemoveNumberPrice }} ₽</b></span
         >
       </div>
     </div>
@@ -36,6 +36,19 @@ export default {
     return {
       // favorites: [],
     };
+  },
+  computed:{
+    stringRemoveNumberName() {
+      let str = this.product.name;
+      if (str.includes("Смартфон")) {
+        str = str.slice(0, str.indexOf("("));
+      }
+      return str;
+    },
+    stringRemoveNumberPrice() {
+      let str = this.product.salePrice;
+      return str / 100;
+    },
   },
   methods: {},
 };

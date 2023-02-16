@@ -27,7 +27,7 @@ export default {
       products: (state) => state.cart.products,
     }),
     isProductAdded() {      
-      return this.products.find(p => p.id === this.productComputed.id);
+      return this.products.find(p => p.code === this.productComputed.code);
     },
   },
   methods: {

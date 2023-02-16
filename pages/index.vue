@@ -2,7 +2,7 @@
   <div class="web-app">
     <headerComponent />
     <div class="wrapper flex-wrap">
-      <div v-for="product in this.paginatedProducts" :key="product.id">
+      <div v-for="product in this.paginatedProducts" :key="product.code">
         <product :product="product" />
       </div>
     </div>
@@ -26,12 +26,21 @@ export default {
   data() {
     return {
       currentPage: 1,
-      maxPerPage: 10,
+      maxPerPage: 6,
       showReadMore: true,
     };
   },
   computed: {
     products() {
+      let productsComputed = JSON.parse(JSON.stringify(this.$store.getters["products"]));
+      for (const product in productsComputed) {
+        if (Object.hasOwnProperty.call(productsComputed, product)) {
+          const element = productsComputed[product];
+          if (!element.name.includes("Смартфон")) {
+            productsComputed.splice(element, 1)
+          }
+        }
+      }
       return this.$store.getters["products"];
     },
     foundResults() {
@@ -47,6 +56,7 @@ export default {
       return this.maxPerPage * this.currentPage;
     },
     paginatedProducts() {
+
       return this.products.slice(0, this.currentPage * this.maxPerPage);
     },
   },
@@ -56,9 +66,6 @@ export default {
     }
   },
   methods: {
-    log() {
-      console.log(this.products);
-    },
     routeToCart() {
       this.$router.push("/cart");
     },
@@ -74,8 +81,8 @@ export default {
       tg.MainButton.show();
     }
     tg.onEvent("mainButtonClicked", this.routeToCart);
-    
-    this.$once('hook:beforeDestroy', () => {
+
+    this.$once("hook:beforeDestroy", () => {
       tg.offEvent("mainButtonClicked", this.routeToCart);
     });
   },

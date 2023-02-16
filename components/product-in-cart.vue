@@ -4,11 +4,10 @@
       <img
         class="cart__image"
         :src="product.photo"
-        :alt="product.name"
       />
-      <h5>{{ product.title }}</h5>
+      <h5>{{ stringRemoveNumberName }}</h5>
     </div>
-    <p>{{ product.price }}₽</p>
+    <p>{{ stringRemoveNumberPrice }}₽</p>
     <div @click="deleteClickHandler" class="delete"></div>
   </div>
 </template>
@@ -29,6 +28,19 @@ export default {
       this.removeProduct(this.product);
     },
   },
+  computed:{
+    stringRemoveNumberName() {
+      let str = this.product.name;
+      if (str.includes("Смартфон")) {
+        str = str.slice(0, str.indexOf("("));
+      }
+      return str;
+    },
+    stringRemoveNumberPrice() {
+      let str = this.product.salePrice;
+      return str / 100;
+    },
+  }
 };
 </script>
 

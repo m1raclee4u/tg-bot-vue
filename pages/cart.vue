@@ -33,19 +33,10 @@ import productInCart from "../components/product-in-cart.vue";
 import { mapGetters, mapActions } from "vuex";
 
 export default {
-  components: { productInCart },
-  computed: {
-    ...mapGetters("cart", ["getProducts"]),
-    fullprice() {
-      let fullPrice = 0;
-      for (const item in this.getProducts) {
-        if (Object.hasOwnProperty.call(this.getProducts, item)) {
-          const element = this.getProducts[item];
-          fullPrice += Number(element.price);
-        }
-      }
-      return fullPrice;
-    },
+  data() {
+    return {
+      // arr: [true, false, true, false, true, true, true],
+    };
   },
   methods: {
     sendData() {
@@ -62,6 +53,20 @@ export default {
         },
         body: JSON.stringify(data),
       });
+    },
+  },
+  components: { productInCart },
+  computed: {
+    ...mapGetters("cart", ["getProducts"]),
+    fullprice() {
+      let fullPrice = 0;
+      for (const item in this.getProducts) {
+        if (Object.hasOwnProperty.call(this.getProducts, item)) {
+          const element = this.getProducts[item];
+          fullPrice += Number(element.salePrice / 100);
+        }
+      }
+      return fullPrice;
     },
   },
   mounted() {
