@@ -13,7 +13,7 @@
           </div>
         </div>
         <p @click="sendData" class="tg-color" v-if="getProducts.length > 0">
-          Итого: {{ fullprice }} ₽
+          Итого: {{ totalPriceComputed }} ₽
         </p>
       </div>
       <p
@@ -33,17 +33,12 @@ import productInCart from "../components/product-in-cart.vue";
 import { mapGetters, mapActions } from "vuex";
 
 export default {
-  data() {
-    return {
-      // arr: [true, false, true, false, true, true, true],
-    };
-  },
   methods: {
     sendData() {
       const { queryId } = useTelegram();
       var data = {
         products: this.getProducts,
-        price: this.fullPrice,
+        price: this.totalPriceComputed,
         queryId,
       };
       fetch("http://localhost:8000/web-data", {
@@ -58,7 +53,7 @@ export default {
   components: { productInCart },
   computed: {
     ...mapGetters("cart", ["getProducts"]),
-    fullprice() {
+    totalPriceComputed() {
       let fullPrice = 0;
       for (const item in this.getProducts) {
         if (Object.hasOwnProperty.call(this.getProducts, item)) {

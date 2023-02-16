@@ -19,11 +19,11 @@ export const mutations = {
 export const actions = {
 
   async fetchProducts({ commit }) {
-    const productsRes = await this.$axios
+    const productsFetch = await this.$axios
       .$get('http://localhost:8000/products')
-  console.log(productsRes);
+  console.log(productsFetch);
 
-  commit("SET_PRODUCTS", productsRes);
+  commit("SET_PRODUCTS", productsFetch);
 
 },
 
