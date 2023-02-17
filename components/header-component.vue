@@ -32,6 +32,7 @@ header {
   justify-content: space-between;
 }
 .logo {
+  cursor: pointer;
   // margin: 0 auto;
   width: 52px;
   height: 46px;
@@ -49,9 +50,11 @@ header {
   background-size: cover;
   background-position: center;
   background-image: url("../assets/img/icons/burger.svg");
+  cursor: pointer;
   transition: 1s;
 }
 .cart {
+  cursor: pointer;
   color: white;
   font-size: 12px;
   width: 16px;
@@ -64,17 +67,19 @@ header {
   .cartCounter {
     transition: 1s;
     position: absolute;
-    width: 10px;
-    height: 10px;
+    width: 15px;
+    height: 15px;
     top: 0;
     margin-left: 8px;
     margin-top: -4px;
     border-radius: 50%;
-    background-color: #000;
+    background-color: #FFDD84;
     text-align: center;
-    color: #fff;
-    font-size: 8px;
+    color: black;
+    font-size: 12px;
     font-style: unset;
+    // font-weight: bold;
+    line-height: 14px;
   }
 }
 </style>

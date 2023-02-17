@@ -61,7 +61,7 @@ export default {
   flex-direction: column;
   gap: 10px;
   // border: 1px solid var(--tg-theme-button-color);
-  background-color: var(--tg-theme-bg-color);
+  background-color: white;
   padding: 10px;
   max-width: 170px;
   border-radius: 10px;
@@ -69,7 +69,7 @@ export default {
   height: 100%;
   justify-content: space-between;
   &:hover {
-    box-shadow: 0px 10px 20px -10px var(--tg-theme-hint-color);
+    box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.151);
   }
   .info {
     display: flex;
@@ -82,7 +82,7 @@ export default {
   width: 100%;
   height: auto;
   margin: 0 auto;
-  background-color: var(--tg-theme-bg-color);
+  background-color: white;
 }
 
 .description {
