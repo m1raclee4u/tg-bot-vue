@@ -89,6 +89,9 @@ export default {
 }
 .cart {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   // max-width: 100%;
   p {
     text-align: right;

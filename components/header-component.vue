@@ -24,7 +24,7 @@ header {
   z-index: 100;
   width: 100%;
   top: 0;
-  background-color: white;
+  background-color: #fdfdfd;
   height: 60px;
   padding: 0 10px;
   display: flex;

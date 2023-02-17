@@ -68,6 +68,8 @@ export default {
   box-sizing: border-box;
   height: 100%;
   justify-content: space-between;
+    box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.151);
+
   &:hover {
     box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.151);
   }
