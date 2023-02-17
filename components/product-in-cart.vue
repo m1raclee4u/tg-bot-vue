@@ -51,7 +51,8 @@ export default {
   justify-content: space-between;
   height: 60px;
   width: 100%;  
-  color: var(--tg-theme-text-color);
+  color: black;
+  font-weight: normal;
   .product__product {
     display: flex;
     align-items: center;

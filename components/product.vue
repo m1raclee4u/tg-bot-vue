@@ -87,22 +87,22 @@ export default {
 
 .description {
   font-size: 0.45em;
-  color: #727272;
+  color: #313131;
   font-style: italic;
 }
 
 .price {
-  color: var(--tg-theme-text-color);
+  color: black;
   font-size: 12px;
 }
 .price span {
-  color: var(--tg-theme-text-color);
+  color: black;
 }
 
 .title {
   max-width: 170px;
   word-break: break-word;
   font-size: 12px;
-  color: var(--tg-theme-text-color);
+  color: black;
 }
 </style>
