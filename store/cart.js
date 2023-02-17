@@ -16,6 +16,10 @@ export const mutations = {
     let arr = state.products
     arr = arr.splice(arr.indexOf(arr.find((p) => p.code === product.code), 1))
   },
+  CLEAR_CART(state) {
+    let arr = state.products
+    arr = arr.splice(0, this.arr.length)
+  },
 }
 export const actions = {
   async addProduct({ commit }, data) {
@@ -25,6 +29,10 @@ export const actions = {
   async removeProduct({ commit }, data) {
     await sleep(300)
     await commit('REMOVE_PRODUCT', data)
+  },
+  async clearCart({ commit }) {
+    await sleep(300)
+    await commit('CLEAR_CART')
   },
 }
 
