@@ -82,9 +82,9 @@ export default {
 
 <style lang="scss" scoped>
 .tg-color {
-  color: var(--tg-theme-text-color);
+  color: black;
   a {
-    color: var(--tg-theme-text-color);
+    color: black;
   }
 }
 .cart {
