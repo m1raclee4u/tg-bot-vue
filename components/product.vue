@@ -76,6 +76,7 @@ export default {
   .info {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 5px;
   }
 }
@@ -106,5 +107,6 @@ export default {
   word-break: break-word;
   font-size: 12px;
   color: black;
+  text-align: center;
 }
 </style>

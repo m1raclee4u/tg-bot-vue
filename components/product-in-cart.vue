@@ -1,10 +1,7 @@
 <template>
   <div class="product">
     <div class="product__product">
-      <img
-        class="cart__image"
-        :src="product.photo"
-      />
+      <img class="cart__image" :src="product.photo" />
       <h5>{{ stringRemoveNumberName }}</h5>
     </div>
     <p>{{ stringRemoveNumberPrice }}₽</p>
@@ -28,7 +25,7 @@ export default {
       this.removeProduct(this.product);
     },
   },
-  computed:{
+  computed: {
     stringRemoveNumberName() {
       let str = this.product.name;
       if (str.includes("Смартфон")) {
@@ -40,7 +37,7 @@ export default {
       let str = this.product.salePrice;
       return str / 100;
     },
-  }
+  },
 };
 </script>
 
@@ -50,9 +47,12 @@ export default {
   align-items: center;
   justify-content: space-between;
   height: 60px;
-  width: 100%;  
+  width: 100%;
   color: black;
-  font-weight: normal;
+  p{
+      font-weight: normal;
+      font-size: 13px;
+    }
   .product__product {
     display: flex;
     align-items: center;
@@ -60,6 +60,11 @@ export default {
     height: 60px;
     width: 100%;
     max-width: 200px;
+    h5 {
+      font-weight: normal;
+      font-size: 13px;
+    }
+    
     .cart__image {
       // width: 30px;
       max-height: 100%;
