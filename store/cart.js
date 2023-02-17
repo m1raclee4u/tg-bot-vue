@@ -14,11 +14,11 @@ export const mutations = {
   },
   REMOVE_PRODUCT(state, product) {
     let arr = state.products
-    arr = arr.splice(arr.indexOf(arr.find((p) => p.code === product.code), 1))
+    arr = arr.splice(arr.indexOf(arr.find((p) => p.code === product.code), 1))    
   },
   CLEAR_CART(state) {
     let arr = state.products
-    arr = arr.splice(0, this.arr.length)
+    arr = arr.splice(0, arr.length)
   },
 }
 export const actions = {

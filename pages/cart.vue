@@ -48,7 +48,7 @@ export default {
         },
         body: JSON.stringify(data),
       });
-      this.$store.dispatch("cart/clearCart")
+      this.$store.cart.dispatch("clearCart")
       },
   },
   components: { productInCart },
