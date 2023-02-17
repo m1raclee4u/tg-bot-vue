@@ -2,6 +2,7 @@ export const state = () => ({
   products: [],
   productsInCart: [],
   filteredItems: [],
+  burgerOpen: false,
 })
 
 export const mutations = {
@@ -11,8 +12,8 @@ export const mutations = {
   SET_CATEGORIES(state, categories) {
     state.categories = categories;
   },
-  SET_MENU_OPENED(state, opened) {
-    state.burgerMenuOpened = opened
+  SET_BURGER_MENU_OPENED(state, opened) {
+    state.burgerOpen = opened
   },
 }
 

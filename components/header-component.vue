@@ -1,15 +1,20 @@
 <template>
   <header>
+    <burgerMenu v-if="$store.state.burgerOpen === true" />
+    <div @click="$store.commit('SET_BURGER_MENU_OPENED', !$store.state.burgerOpen)" class="burger"></div>
     <div @click="$router.push('/')" class="logo"></div>
     <div @click="$router.push('/cart')" class="cart">
-        Товаров в корзине : {{ $store.state.cart.products.length }}
-      <!-- <i class="cartCounter">{{ $store.state.cart.products.length }}</i> -->
+      <!-- Товаров в корзине : {{ $store.state.cart.products.length }} -->
+      <i class="cartCounter">{{ $store.state.cart.products.length }}</i>
     </div>
   </header>
 </template>
 
 <script>
+import burgerMenu from "../components/buttons/burgerMenu.vue";
+
 export default {
+  components: { burgerMenu },
 };
 </script>
 
@@ -19,8 +24,8 @@ header {
   z-index: 100;
   width: 100%;
   top: 0;
-  background-color: black;
-  height: 40px;
+  background-color: white;
+  height: 60px;
   padding: 0 10px;
   display: flex;
   align-items: center;
@@ -28,36 +33,48 @@ header {
 }
 .logo {
   // margin: 0 auto;
-  width: 40px;
-  height: 40px;
+  width: 52px;
+  height: 46px;
   background-size: cover;
   background-position: center;
-  background-image: url("https://sun9-13.userapi.com/impg/E7kr6rybiGuaTdXQiaR7a5bvdVsRY6YSRZQupg/QrRbq_910IE.jpg?size=640x640&quality=95&sign=00b1ff7b83f6657eb50b2acd5ad03187&type=album");
+  // background-image: url("https://sun9-13.userapi.com/impg/E7kr6rybiGuaTdXQiaR7a5bvdVsRY6YSRZQupg/QrRbq_910IE.jpg?size=640x640&quality=95&sign=00b1ff7b83f6657eb50b2acd5ad03187&type=album");
+  background-image: url("../assets/img/icons/logo.svg");
+}
+.burger {
+  color: white;
+  font-size: 12px;
+  width: 16px;
+  height: 16px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-image: url("../assets/img/icons/burger.svg");
+  transition: 1s;
 }
 .cart {
-    color: white;
-    font-size: 12px;
-//   width: 15px;
-//   height: 13px;
-//   position: relative;
-//   background-size: cover;
-//   background-position: center;
-//   background-image: url("../assets/img/icons/cart.svg");
-//   transition: 1s;
-//   .cartCounter {
-//     transition: 1s;
-//     position: absolute;
-//     width: 10px;
-//     height: 10px;
-//     top: 0;
-//     margin-left: 8px;
-//     margin-top: -4px;
-//     border-radius: 50%;
-//     background-color: #000;
-//     text-align: center;
-//     color: #fff;
-//     font-size: 8px;
-//     font-style: unset;
-//   }
+  color: white;
+  font-size: 12px;
+  width: 16px;
+  height: 23px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-image: url("../assets/img/icons/cart.svg");
+  transition: 1s;
+  .cartCounter {
+    transition: 1s;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 0;
+    margin-left: 8px;
+    margin-top: -4px;
+    border-radius: 50%;
+    background-color: #000;
+    text-align: center;
+    color: #fff;
+    font-size: 8px;
+    font-style: unset;
+  }
 }
 </style>

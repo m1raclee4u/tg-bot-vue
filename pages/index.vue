@@ -2,17 +2,26 @@
   <div class="web-app">
     <headerComponent />
     <div class="wrapper flex-wrap">
+      <p>
+        Показано товаров: {{ paginatedProducts.length }} из {{ foundResults }}
+      </p>
+
       <div v-for="product in this.paginatedProducts" :key="product.code">
         <product :product="product" />
       </div>
     </div>
-    <button
-      @click="loadMore"
-      v-if="currentPage * maxPerPage < this.products.length"
-      class="load-more"
-    >
-      Загрузить больше
-    </button>
+    <div class="load">
+      <p>
+        Показано товаров: {{ paginatedProducts.length }} из {{ foundResults }}
+      </p>
+      <button
+        @click="loadMore"
+        v-if="currentPage * maxPerPage < this.products.length"
+        class="load-more"
+      >
+        Загрузить больше
+      </button>
+    </div>
   </div>
 </template>
 
@@ -32,12 +41,14 @@ export default {
   },
   computed: {
     products() {
-      let productsComputed = JSON.parse(JSON.stringify(this.$store.getters["products"]));
+      let productsComputed = JSON.parse(
+        JSON.stringify(this.$store.getters["products"])
+      );
       for (const product in productsComputed) {
         if (Object.hasOwnProperty.call(productsComputed, product)) {
           const element = productsComputed[product];
           if (!element.name.includes("Смартфон")) {
-            productsComputed.splice(element, 1)
+            productsComputed.splice(element, 1);
           }
         }
       }
@@ -56,7 +67,6 @@ export default {
       return this.maxPerPage * this.currentPage;
     },
     paginatedProducts() {
-
       return this.products.slice(0, this.currentPage * this.maxPerPage);
     },
   },
@@ -96,8 +106,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.load{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  p{
+    text-align: center;
+    font-size: 12px;
+  }
+}
 .flex-wrap {
   flex-wrap: wrap;
+  p {
+    width: 100%;
+    text-align: left;
+    font-size: 12px;
+  }
 }
 .load-more {
   width: 75%;
