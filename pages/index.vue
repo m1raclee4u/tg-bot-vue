@@ -111,6 +111,8 @@
   .grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    column-gap: 5px;
+    row-gap: 10px;
   }
 
   .load {
