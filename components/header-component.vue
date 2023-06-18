@@ -34,12 +34,12 @@ header {
 .logo {
   cursor: pointer;
   // margin: 0 auto;
-  width: 52px;
-  height: 46px;
+  width: 121px;
+  height: 30px;
   background-size: cover;
   background-position: center;
   // background-image: url("https://sun9-13.userapi.com/impg/E7kr6rybiGuaTdXQiaR7a5bvdVsRY6YSRZQupg/QrRbq_910IE.jpg?size=640x640&quality=95&sign=00b1ff7b83f6657eb50b2acd5ad03187&type=album");
-  background-image: url("../assets/img/icons/logo.svg");
+  background-image: url("../assets/img/icons/logologo.png");
 }
 .burger {
   color: white;
