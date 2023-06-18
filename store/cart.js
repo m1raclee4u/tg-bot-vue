@@ -9,12 +9,16 @@ export const state = () => ({
 export const mutations = {
   ADD_PRODUCT(state, product) {
     let arr = state.products
-    if (!arr.find(p => p.code === product.code))
+    if (!arr.find(p => {
+      p.title === product.title
+    }))
       state.products = [...state.products, product]
   },
   REMOVE_PRODUCT(state, product) {
     let arr = state.products
-    arr = arr.splice(arr.indexOf(arr.find((p) => p.code === product.code), 1))
+    arr = arr.splice(arr.indexOf(arr.find((p) => {
+      p.title === product.title
+    }), 1))
 
   },
   CLEAR_CART(state) {

@@ -31,20 +31,24 @@ header {
   top: 0;
   background-color: #fdfdfd;
   height: 60px;
-  padding: 0 10px;
+  padding: 0 10px 5px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.30);
+
 }
 .logo {
   cursor: pointer;
   // margin: 0 auto;
   width: 121px;
-  height: 30px;
+  height: 40px;
+  margin-left: 20px;
+  margin-top: 15px;
   background-size: cover;
   background-position: center;
   // background-image: url("https://sun9-13.userapi.com/impg/E7kr6rybiGuaTdXQiaR7a5bvdVsRY6YSRZQupg/QrRbq_910IE.jpg?size=640x640&quality=95&sign=00b1ff7b83f6657eb50b2acd5ad03187&type=album");
-  background-image: url("../assets/img/icons/logologo.png");
+  background-image: url("../assets/img/icons/loglo.png");
 }
 .burger {
   color: white;

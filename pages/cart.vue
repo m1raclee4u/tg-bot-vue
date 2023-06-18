@@ -7,7 +7,7 @@
           <div
             class="oneProduct"
             v-for="product in getProducts"
-            :key="product.id"
+            :key="product.title"
           >
             <productInCart :product="product" />
           </div>

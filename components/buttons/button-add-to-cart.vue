@@ -26,8 +26,8 @@ export default {
     ...mapState({
       products: (state) => state.cart.products,
     }),
-    isProductAdded() {      
-      return this.products.find(p => p.code === this.productComputed.code);
+    isProductAdded() {
+      return this.products.find(p => p.title === this.productComputed.title);
     },
   },
   methods: {
@@ -44,7 +44,7 @@ export default {
         tg.MainButton.show();
     },
   },
-  
+
 };
 </script>
 

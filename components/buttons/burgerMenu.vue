@@ -56,7 +56,6 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    border-top: 1px solid grey;
     background-color: #fdfdfd;
   }
 </style>
