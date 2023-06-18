@@ -68,6 +68,6 @@ export default {
   width: 15px;
   height: 15px;
   background-size: cover;
-  background-image: url("../assets/img/icons/deleteCartItem.svg");
+  background-image: url("@/assets/img/icons/deleteCartItem.svg");
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <header>
-    <burgerMenu v-if="$store.state.burgerOpen === true" />
-    <div @click="$store.commit('SET_BURGER_MENU_OPENED', !$store.state.burgerOpen)" class="burger"></div>
+    <burgerMenu @buttonClosePressed="burgerMenuToggle" v-if="$store.state.burgerOpen === true" />
+    <div @click="burgerMenuToggle" class="burger"></div>
     <div @click="$router.push('/')" class="logo"></div>
     <div @click="$router.push('/cart')" class="cart">
       <!-- Товаров в корзине : {{ $store.state.cart.products.length }} -->
@@ -15,6 +15,11 @@ import burgerMenu from "../components/buttons/burgerMenu.vue";
 
 export default {
   components: { burgerMenu },
+  methods: {
+    burgerMenuToggle() {
+      this.$store.commit('SET_BURGER_MENU_OPENED', !this.$store.state.burgerOpen)
+    }
+  }
 };
 </script>
 
