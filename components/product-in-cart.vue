@@ -1,17 +1,23 @@
 <template>
   <div class="product">
     <div class="product__product">
-      <img class="cart__image" :src="product.photo" />
-      <h5>{{ stringRemoveNumberName }}</h5>
+      <img class="cart__image" :src="IH.getUrl($axios.defaults.baseURL + '/' + product?.image, 387, fm = 'webp',)" />
+      <h5>{{ product.title }}</h5>
     </div>
-    <p>{{ stringRemoveNumberPrice }}₽</p>
+    <p>{{ product.price }}₽</p>
     <div @click="deleteClickHandler" class="delete"></div>
   </div>
 </template>
 
 <script>
 import { mapActions } from "vuex";
+import ImageHelper from "~/plugins/imageHelper";
 export default {
+  data() {
+    return {
+      IH: new ImageHelper(),
+    }
+  },
   props: {
     product: {
       type: Object,
@@ -24,20 +30,7 @@ export default {
     deleteClickHandler() {
       this.removeProduct(this.product);
     },
-  },
-  computed: {
-    stringRemoveNumberName() {
-      let str = this.product.name;
-      if (str.includes("Смартфон")) {
-        str = str.slice(0, str.indexOf("("));
-      }
-      return str;
-    },
-    stringRemoveNumberPrice() {
-      let str = this.product.salePrice;
-      return str / 100;
-    },
-  },
+  }
 };
 </script>
 
@@ -64,7 +57,7 @@ export default {
       font-weight: normal;
       font-size: 13px;
     }
-    
+
     .cart__image {
       // width: 30px;
       max-height: 100%;

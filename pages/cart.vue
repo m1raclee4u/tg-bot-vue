@@ -59,7 +59,7 @@ export default {
       for (const item in this.getProducts) {
         if (Object.hasOwnProperty.call(this.getProducts, item)) {
           const element = this.getProducts[item];
-          fullPrice += Number(element.salePrice / 100);
+          fullPrice += Number(element.price);
         }
       }
       return fullPrice;
