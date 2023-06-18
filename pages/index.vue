@@ -41,17 +41,6 @@ export default {
   },
   computed: {
     products() {
-      let productsComputed = JSON.parse(
-        JSON.stringify(this.$store.getters["products"])
-      );
-      for (const product in productsComputed) {
-        if (Object.hasOwnProperty.call(productsComputed, product)) {
-          const element = productsComputed[product];
-          if (!element.name.includes("Смартфон")) {
-            productsComputed.splice(element, 1);
-          }
-        }
-      }
       return this.$store.getters["products"];
     },
     foundResults() {

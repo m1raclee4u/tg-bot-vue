@@ -1,16 +1,17 @@
 <template>
   <div class="product">
-    <img class="img" :src="product.photo"/>
+    <img class="img" :src="IH.getUrl($axios.defaults.baseURL + '/' + product?.image, 387, fm = 'webp',)"/>
+
     <div class="info">
       <div class="title">
-        {{ stringRemoveNumberName }}
+        {{ product.title }}
       </div>
       <div class="description">
         {{ product.desc }}
       </div>
       <div class="price">
         <span
-          >Стоимость: <b>{{ stringRemoveNumberPrice }} ₽</b></span
+          >Стоимость: <b>{{ product.price }} ₽</b></span
         >
       </div>
     </div>
@@ -22,6 +23,7 @@
 import Swiper, { Navigation, Pagination, Autoplay } from "swiper";
 import "swiper/swiper-bundle.css";
 import buttonAddToCart from "./buttons/button-add-to-cart.vue";
+import ImageHelper from "~/plugins/imageHelper";
 
 Swiper.use([Navigation, Pagination, Autoplay]);
 export default {
@@ -35,20 +37,10 @@ export default {
   data() {
     return {
       // favorites: [],
+      IH: new ImageHelper(),
     };
   },
   computed:{
-    stringRemoveNumberName() {
-      let str = this.product.name;
-      if (str.includes("Смартфон")) {
-        str = str.slice(0, str.indexOf("("));
-      }
-      return str;
-    },
-    stringRemoveNumberPrice() {
-      let str = this.product.salePrice;
-      return str / 100;
-    },
   },
   methods: {},
 };

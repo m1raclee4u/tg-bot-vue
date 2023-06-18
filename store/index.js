@@ -21,10 +21,10 @@ export const actions = {
 
   async fetchProducts({ commit }) {
     const productsFetch = await this.$axios
-      .$get('http://localhost:8000/products')
+      .$get('https://api.deqo.ru/api/site/catalog-list')
   console.log(productsFetch);
 
-  commit("SET_PRODUCTS", productsFetch);
+  commit("SET_PRODUCTS", productsFetch.data);
 
 },
 
