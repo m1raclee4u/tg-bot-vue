@@ -1,24 +1,19 @@
 <template>
-  <video-background
-    v-if="isReady"
-    class="background"
-    src="/video/main.webm"
-    ref=videobackground
-    :controls=true
-    playsWhen=canplaythrough
-    :autoplay=true
-    :loop=false
-    style="max-width: 100%;
+  <div style="max-width: 100%;
     max-height: 100%;
     width: 100vw;
-    height: 100vh;"
-  >
+    height: 100vh;" class="wrapper background">
+    <video
+      playsWhen=canplaythrough
+      autoplay
+      muted
+      loop="false"
+      src="/video/main.webm"></video>
     <div class="info">
       <p>Новое слово в <strong><i>устойчивой</i></strong> моде</p>
       <button @click="$router.push('/catalog')">Узнать подробнее</button>
     </div>
-
-  </video-background>
+  </div>
 </template>
 
 <script>
@@ -38,9 +33,10 @@
 </script>
 
 <style lang="scss" scoped>
-  body{
+  body {
     background-color: #000;
   }
+
   .background {
     color: white;
     background-color: #fff;
