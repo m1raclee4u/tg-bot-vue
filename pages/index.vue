@@ -2,8 +2,9 @@
   <video-background
     v-if="isReady"
     class="background"
-    src="/video/main.mp4"
+    src="/video/main.webm"
     ref=videobackground
+    :controls=true
     playsWhen=canplaythrough
     :autoplay=true
     :loop=false
@@ -42,7 +43,7 @@
   }
   .background {
     color: white;
-    background-color: #000;
+    background-color: #fff;
 
     .info {
       animation: animation-name 6s;
