@@ -1,5 +1,6 @@
 <template>
   <video-background
+    v-if="isReady"
     class="background"
     src="/video/main.mp4"
     :loop=false
@@ -17,15 +18,26 @@
 </template>
 
 <script>
-    export default {
-        name: "index.vue",
+  export default {
+    name: "index.vue",
+    data() {
+      return {
+        isReady: false
+      }
+    },
+    mounted() {
+      setTimeout(() => {
+        this.isReady = true
+      }, 500)
     }
+  }
 </script>
 
 <style lang="scss" scoped>
-  .background{
+  .background {
     color: white;
-    .info{
+
+    .info {
       animation: animation-name 6s;
 
       position: absolute;
@@ -39,14 +51,15 @@
       flex-direction: column;
       align-items: center;
 
-      p{
+      p {
         font-size: 5.7vw;
         margin-bottom: 25px;
       }
 
     }
   }
-  button{
+
+  button {
     width: 100%;
     max-width: 250px;
     height: 50px;
@@ -56,7 +69,8 @@
     color: white;
     font-size: 14px;
   }
-  @keyframes animation-name{
+
+  @keyframes animation-name {
     0% {
       opacity: 0;
       bottom: -500px;
