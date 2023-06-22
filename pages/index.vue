@@ -3,6 +3,9 @@
     v-if="isReady"
     class="background"
     src="/video/main.mp4"
+    ref=videobackground
+    playsWhen=canplaythrough
+    :autoplay=true
     :loop=false
     style="max-width: 100%;
     max-height: 100%;
