@@ -34,8 +34,12 @@
 </script>
 
 <style lang="scss" scoped>
+  body{
+    background-color: #000;
+  }
   .background {
     color: white;
+    background-color: #000;
 
     .info {
       animation: animation-name 6s;
