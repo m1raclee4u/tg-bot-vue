@@ -28,7 +28,7 @@
     mounted() {
       setTimeout(() => {
         this.isReady = true
-      }, 500)
+      }, 1000)
     }
   }
 </script>
