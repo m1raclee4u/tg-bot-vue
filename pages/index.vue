@@ -1,5 +1,4 @@
 <template>
-  <ClientOnly>
   <video-background
     class="background"
     src="/video/main.mp4"
@@ -15,7 +14,6 @@
     </div>
 
   </video-background>
-  </ClientOnly>
 </template>
 
 <script>
