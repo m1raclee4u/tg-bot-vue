@@ -36,10 +36,11 @@
   body {
     background-color: #000;
   }
-
+  .wrapper{
+    background-color: #000;
+  }
   .background {
     color: white;
-    background-color: #fff;
 
     .info {
       animation: animation-name 6s;
