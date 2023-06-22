@@ -1,148 +1,71 @@
 <template>
-  <div class="web-app">
-    <headerComponent/>
-    <div class="wrapper flex-wrap">
-      <p>
-        Показано товаров: {{ paginatedProducts.length }} из {{ foundResults }}
-      </p>
-      <div class="grid">
-        <div v-for="product in this.paginatedProducts" :key="product.code">
-          <product :product="product"/>
-        </div>
-      </div>
+  <ClientOnly>
+  <video-background
+    class="background"
+    src="/video/main.mp4"
+    :loop=false
+    style="max-width: 100%;
+    max-height: 100%;
+    width: 100vw;
+    height: 100vh;"
+  >
+    <div class="info">
+      <p>Новое слово в <strong><i>устойчивой</i></strong> моде</p>
+      <button @click="$router.push('/catalog')">Узнать подробнее</button>
     </div>
-    <div class="load">
-      <p>
-        Показано товаров: {{ paginatedProducts.length }} из {{ foundResults }}
-      </p>
-      <button
-        @click="loadMore"
-        v-if="currentPage * maxPerPage < this.products.length"
-        class="load-more"
-      >
-        Загрузить больше
-      </button>
-    </div>
-  </div>
+
+  </video-background>
+  </ClientOnly>
 </template>
 
 <script>
-  import product from "../components/product.vue";
-  import headerComponent from "../components/header-component.vue";
-
-  export default {
-    components: {product, headerComponent},
-    name: "IndexPage",
-    data() {
-      return {
-        currentPage: 1,
-        maxPerPage: 6,
-        showReadMore: true,
-      };
-    },
-    computed: {
-      burgerMenuOpened(){
-        return this.$store.state.burgerOpen
-      },
-      products() {
-        return this.$store.getters["products"];
-      },
-      foundResults() {
-        return this.products.length;
-      },
-      totalResults() {
-        return Object.keys(this.orders).length;
-      },
-      pageCount() {
-        return Math.ceil(this.totalResults / this.maxPerPage);
-      },
-      pageOffest() {
-        return this.maxPerPage * this.currentPage;
-      },
-      paginatedProducts() {
-        return this.products.slice(0, this.currentPage * this.maxPerPage);
-      },
-    },
-    beforeMount() {
-      if (this.$store.getters["products"].length === 0) {
-        this.$store.dispatch("fetchProducts");
-      }
-    },
-    methods: {
-      routeToCart() {
-        this.$router.push("/cart");
-      },
-      loadMore() {
-        this.currentPage += 1;
-      },
-    },
-    mounted() {
-      if (this.products.length === 0) {
-        tg.MainButton.hide();
-      } else {
-        tg.MainButton.setText("Перейти в корзину");
-        tg.MainButton.show();
-      }
-      tg.onEvent("mainButtonClicked", this.routeToCart);
-
-      this.$once("hook:beforeDestroy", () => {
-        tg.offEvent("mainButtonClicked", this.routeToCart);
-      });
-    },
-    watch: {
-      burgerMenuOpened(value) {
-        if (value === true) {
-          document.body.style.overflow = 'hidden'
-        } else {
-          document.body.style.overflow = 'scroll'
-        }
-      }
+    export default {
+        name: "index.vue",
     }
-    // updated() {
-    //   tg.onEvent("mainButtonClicked", this.routeToCart);
-    // },
-    // beforeDestroy() {
-    //   tg.offEvent("mainButtonClicked", this.routeToCart);
-    // },
-  };
 </script>
 
 <style lang="scss" scoped>
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 5px;
-    row-gap: 10px;
-  }
+  .background{
+    color: white;
+    .info{
+      animation: animation-name 6s;
 
-  .load {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+      position: absolute;
+      bottom: 50px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      width: 90%;
 
-    p {
-      text-align: center;
-      font-size: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      p{
+        font-size: 5.7vw;
+        margin-bottom: 25px;
+      }
+
     }
   }
-
-  .flex-wrap {
-    flex-wrap: wrap;
-
-    p {
-      width: 100%;
-      text-align: left;
-      font-size: 12px;
-    }
+  button{
+    width: 100%;
+    max-width: 250px;
+    height: 50px;
+    border: 1px solid white;
+    border-radius: 50px;
+    background-color: transparent;
+    color: white;
+    font-size: 14px;
   }
-
-  .load-more {
-    width: 75%;
-    margin: 0 auto;
-    padding: 15px;
-    border-radius: 20px;
-    border: none;
-    background: var(--tg-theme-button-color);
-    color: var(--tg-theme-button-text-color);
+  @keyframes animation-name{
+    0% {
+      opacity: 0;
+      bottom: -500px;
+    }
+    100% {
+      opacity: 1;
+      bottom: 50px;
+    }
   }
 </style>
